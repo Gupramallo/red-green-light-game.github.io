@@ -1,14 +1,19 @@
 import type React from 'react'
-import { useGameDataContext } from '../../../shared/game-data-provider/context'
-import { StepButton } from '../../atoms/buttons'
+import { Traffic } from '@mui/icons-material'
+import { ButtonGroup } from '@mui/material'
+import { useTrafficLight } from './use-traffic-light'
+import { StepButton } from '@/components/atoms/buttons'
 
 const Game: React.FC = () => {
-  const { clearCurrentUser } = useGameDataContext()
+  const { isGreenLight } = useTrafficLight()
 
   return (
     <>
-      <StepButton label="Left" onClick={clearCurrentUser} />
-      <StepButton label="Right" onClick={clearCurrentUser} />
+      <Traffic fontSize="large" color={isGreenLight ? 'success' : 'error'} />
+      <ButtonGroup fullWidth variant="contained">
+        <StepButton label="Left" onClick={() => {}} />
+        <StepButton label="Right" onClick={() => {}} />
+      </ButtonGroup>
     </>
   )
 }

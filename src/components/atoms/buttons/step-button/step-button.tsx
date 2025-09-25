@@ -3,7 +3,13 @@ import { Button } from '@mui/material'
 import type { StepButtonProps } from './types'
 
 const StepButton: React.FC<StepButtonProps> = ({ label, onClick }) => (
-  <Button size="large" variant="contained" color="info" onClick={onClick}>
+  <Button
+    size="large"
+    fullWidth
+    variant="contained"
+    color="info"
+    onClick={onClick}
+  >
     {label}
   </Button>
 )
