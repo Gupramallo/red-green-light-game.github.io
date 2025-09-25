@@ -5,17 +5,35 @@ import { useGameDataStore } from './store'
 import type { GameDataStore } from './types'
 
 const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
-  const { currentUser, highestScores, setCurrentUser, clearCurrentUser } =
-    useGameDataStore()
+  const {
+    currentUser,
+    usersScores,
+    setCurrentUser,
+    clearCurrentUser,
+    updateGameScore,
+    finalizeGame,
+    resetGameScore,
+  } = useGameDataStore()
 
   const value: GameDataStore = useMemo(
     () => ({
       currentUser,
-      highestScores,
+      finalizeGame,
+      usersScores,
       setCurrentUser,
       clearCurrentUser,
+      updateGameScore,
+      resetGameScore,
     }),
-    [currentUser, highestScores, setCurrentUser, clearCurrentUser]
+    [
+      currentUser,
+      finalizeGame,
+      usersScores,
+      setCurrentUser,
+      clearCurrentUser,
+      updateGameScore,
+      resetGameScore,
+    ]
   )
 
   return (

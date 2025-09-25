@@ -19,3 +19,8 @@ export const TRAFFIC_COLORS = {
 } as const
 
 export const INITIAL_STATE = TRAFFIC_COLORS.green
+
+export const STEP = {
+  left: 'left',
+  right: 'right',
+} as const

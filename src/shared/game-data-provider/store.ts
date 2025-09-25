@@ -5,17 +5,16 @@ import type { GameDataStore } from './types'
 export const useGameDataStore = create<GameDataStore>()(
   persist(
     (set, get) => ({
-      highestScores: [],
+      usersScores: [],
       currentUser: undefined,
+      currentGameScore: 0,
       setCurrentUser: (userName: string) => {
-        const { highestScores } = get()
-
-        const existingUser = highestScores.find(
-          (user) => user.name === userName
-        )
+        const { usersScores } = get()
+        const existingUser = usersScores.find((user) => user.name === userName)
         const currentUser = {
           name: userName,
           score: existingUser?.score ?? 0,
+          highScore: existingUser?.highScore ?? 0,
         }
 
         set({
@@ -24,21 +23,70 @@ export const useGameDataStore = create<GameDataStore>()(
 
         if (!existingUser) {
           set({
-            highestScores: [...highestScores, currentUser],
+            usersScores: [...usersScores, currentUser],
           })
         }
       },
+
       clearCurrentUser: () => {
+        const { usersScores, currentUser } = get()
+        const updatedUsersScores = usersScores.map((user) =>
+          user.name === currentUser?.name ? currentUser : user
+        )
+
         set({
           currentUser: undefined,
+          usersScores: updatedUsersScores,
+        })
+      },
+
+      updateGameScore: (score: number) => {
+        const { currentUser } = get()
+
+        if (!currentUser) return
+
+        set({
+          currentUser: {
+            ...currentUser,
+            score,
+            highScore: Math.max(currentUser.highScore, score),
+          },
+        })
+      },
+
+      resetGameScore: () => {
+        const { currentUser } = get()
+
+        if (!currentUser) return
+
+        set({ currentUser: { ...currentUser, score: 0 } })
+      },
+
+      finalizeGame: () => {
+        const { currentUser, usersScores } = get()
+
+        if (!currentUser) return
+
+        const updatedUser = {
+          ...currentUser,
+          score: 0,
+        }
+
+        const updatedUsersScores = usersScores.map((user) =>
+          user.name === currentUser.name ? updatedUser : user
+        )
+
+        set({
+          currentUser: updatedUser,
+          usersScores: updatedUsersScores,
         })
       },
     }),
     {
       name: 'game-data-storage',
-      partialize: ({ currentUser, highestScores }) => ({
+      partialize: ({ currentUser, usersScores }) => ({
         currentUser,
-        highestScores,
+        usersScores,
       }),
     }
   )
