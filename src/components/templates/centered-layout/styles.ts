@@ -8,4 +8,5 @@ export const Layout = styled(Box)`
   align-items: center;
   height: 100%;
   padding: ${({ theme }) => theme.spacing(2.5)};
+  background-color: ${({ theme }) => theme.palette.grey[200]};
 `
