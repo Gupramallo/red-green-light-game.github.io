@@ -1,6 +1,6 @@
 import type React from 'react'
-import { useGameDataContext } from '../../../shared/game-data-provider/context'
 import { Button } from '@mui/material'
+import { useGameDataContext } from '../../../shared/game-data-provider/context'
 
 const Game: React.FC = () => {
   const { clearCurrentUser } = useGameDataContext()

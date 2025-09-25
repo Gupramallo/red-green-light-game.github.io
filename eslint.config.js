@@ -4,6 +4,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
 import tseslint from 'typescript-eslint'
 import { defineConfig, globalIgnores } from 'eslint/config'
+import importPlugin from 'eslint-plugin-import'
 
 export default defineConfig([
   globalIgnores(['dist']),
@@ -15,6 +16,9 @@ export default defineConfig([
       reactHooks.configs['recommended-latest'],
       reactRefresh.configs.vite,
     ],
+    plugins: {
+      import: importPlugin,
+    },
     rules: {
       semi: ['error', 'never'],
       'no-console': 'warn',
@@ -66,7 +70,6 @@ export default defineConfig([
       ],
       'import/first': 'error',
       'import/newline-after-import': 'error',
-      'no-duplicate-imports': 'error',
     },
     languageOptions: {
       ecmaVersion: 2020,

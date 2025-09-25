@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react'
 import type { PropsWithChildren } from 'react'
 import { GameDataContext } from './context'
-import type { GameDataStore } from './types'
 import { useGameDataStore } from './store'
+import type { GameDataStore } from './types'
 
 const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const { currentUser, highestScores, setCurrentUser, clearCurrentUser } =
@@ -15,7 +15,7 @@ const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
       setCurrentUser,
       clearCurrentUser,
     }),
-    [currentUser, setCurrentUser, clearCurrentUser]
+    [currentUser, highestScores, setCurrentUser, clearCurrentUser]
   )
 
   return (

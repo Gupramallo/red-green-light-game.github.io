@@ -1,6 +1,5 @@
+import React, { useState } from 'react'
 import { Typography, TextField, Button, Box, Paper } from '@mui/material'
-import { useState } from 'react'
-import type React from 'react'
 import { useGameDataContext } from '../../../shared/game-data-provider/context'
 
 const Home: React.FC = () => {
