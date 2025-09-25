@@ -1,24 +1,26 @@
-import { Routes, Route, Navigate } from 'react-router-dom'
+import { Navigate, Route, Routes } from 'react-router-dom'
 import { Game, Home, Rankings } from './components/pages'
+import Layout from './components/templates/layout'
 import { AuthGuard, PublicGuard } from './shared/auth'
-import './App.css'
+import { ROUTES } from './shared/routes'
 
 function App() {
   return (
-    <div className="app">
-      <main>
-        <Routes>
-          <Route element={<PublicGuard />}>
-            <Route path="/home" element={<Home />} />
-            <Route path="*" element={<Navigate to="/home" replace />} />
-          </Route>
-          <Route element={<AuthGuard />}>
-            <Route path="/game" element={<Game />} />
-            <Route path="/rankings" element={<Rankings />} />
-          </Route>
-        </Routes>
-      </main>
-    </div>
+    <Layout>
+      <Routes>
+        <Route element={<PublicGuard />}>
+          <Route path={ROUTES.home} element={<Home />} />
+          <Route
+            path={ROUTES.notFound}
+            element={<Navigate to={ROUTES.home} replace />}
+          />
+        </Route>
+        <Route element={<AuthGuard />}>
+          <Route path={ROUTES.game} element={<Game />} />
+        </Route>
+        <Route path={ROUTES.rankings} element={<Rankings />} />
+      </Routes>
+    </Layout>
   )
 }
 

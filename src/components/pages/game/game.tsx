@@ -3,23 +3,16 @@ import { Traffic } from '@mui/icons-material'
 import { ButtonGroup, Typography } from '@mui/material'
 import { StepButton } from '@/components/atoms/buttons'
 import { STEP } from './constants'
+import { Container } from './styles'
 import { useTrafficLight } from './use-traffic-light'
 
 const Game: React.FC = () => {
-  const {
-    isGreenLight,
-    currentUser,
-    handleStepClicked,
-    currentGameScore,
-    highScore,
-  } = useTrafficLight()
+  const { isGreenLight, handleStepClicked, currentGameScore } =
+    useTrafficLight()
 
   return (
-    <>
-      <Typography>
-        {currentUser?.name} Score: {currentGameScore} HighScore: {highScore}
-      </Typography>
-
+    <Container>
+      <Typography>Score: {currentGameScore}</Typography>
       <Traffic fontSize="large" color={isGreenLight ? 'success' : 'error'} />
       <ButtonGroup fullWidth variant="contained">
         <StepButton
@@ -31,7 +24,7 @@ const Game: React.FC = () => {
           onClick={() => handleStepClicked({ step: STEP.right })}
         />
       </ButtonGroup>
-    </>
+    </Container>
   )
 }
 
