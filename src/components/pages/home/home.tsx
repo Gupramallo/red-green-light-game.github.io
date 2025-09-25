@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Typography, TextField, Button, Box, Paper } from '@mui/material'
+import { Box, Button, Paper, TextField, Typography } from '@mui/material'
+import CenteredLayout from '@/components/templates/centered-layout'
 import { useGameDataContext } from '../../../shared/game-data-provider/context'
 
 const Home: React.FC = () => {
@@ -7,7 +8,7 @@ const Home: React.FC = () => {
   const [userName, setUserName] = useState('')
 
   return (
-    <Box display="flex" flexDirection="column" alignItems="center" gap={3}>
+    <CenteredLayout>
       <Typography variant="h3" component="h1">
         Red Green Light Game
       </Typography>
@@ -34,7 +35,7 @@ const Home: React.FC = () => {
           </Button>
         </Box>
       </Paper>
-    </Box>
+    </CenteredLayout>
   )
 }
 

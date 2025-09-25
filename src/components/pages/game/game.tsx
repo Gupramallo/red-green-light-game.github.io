@@ -2,8 +2,8 @@ import type React from 'react'
 import { Traffic } from '@mui/icons-material'
 import { ButtonGroup, Typography } from '@mui/material'
 import { StepButton } from '@/components/atoms/buttons'
+import CenteredLayout from '@/components/templates/centered-layout'
 import { STEP } from './constants'
-import { Container } from './styles'
 import { useTrafficLight } from './use-traffic-light'
 
 const Game: React.FC = () => {
@@ -11,7 +11,7 @@ const Game: React.FC = () => {
     useTrafficLight()
 
   return (
-    <Container>
+    <CenteredLayout>
       <Typography>Score: {currentGameScore}</Typography>
       <Traffic fontSize="large" color={isGreenLight ? 'success' : 'error'} />
       <ButtonGroup fullWidth variant="contained">
@@ -24,7 +24,7 @@ const Game: React.FC = () => {
           onClick={() => handleStepClicked({ step: STEP.right })}
         />
       </ButtonGroup>
-    </Container>
+    </CenteredLayout>
   )
 }
 
