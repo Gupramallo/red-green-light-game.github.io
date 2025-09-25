@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Game, Home, Rankings } from './components/pages'
+import { GamePage, Home, Rankings } from './components/pages'
 import Layout from './components/templates/layout'
 import { AuthGuard, PublicGuard } from './shared/auth'
 import { ROUTES } from './shared/routes'
@@ -16,7 +16,7 @@ function App() {
           />
         </Route>
         <Route element={<AuthGuard />}>
-          <Route path={ROUTES.game} element={<Game />} />
+          <Route path={ROUTES.game} element={<GamePage />} />
         </Route>
         <Route path={ROUTES.rankings} element={<Rankings />} />
       </Routes>

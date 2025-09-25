@@ -1,4 +1,4 @@
-import type { STEP } from '@/components/pages/game/constants'
+import type { STEP } from '@/components/pages/game-page/constants'
 
 export type User = {
   name: string

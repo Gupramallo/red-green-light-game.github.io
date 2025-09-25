@@ -1,18 +1,20 @@
 import type React from 'react'
 import { ButtonGroup } from '@mui/material'
 import { StepButton } from '@/components/atoms/buttons'
-import Scoreboard from '@/components/molecules/scoreboard/scoreboard'
+import Scoreboard from '@/components/molecules/scoreboard'
 import TrafficLight from '@/components/molecules/traffic-light'
-import CenteredLayout from '@/components/templates/centered-layout'
-import { STEP } from './constants'
-import { useTrafficLight } from './use-traffic-light'
+import { STEP } from '@/components/pages/game-page/constants'
+import CenteredLayout from '../centered-layout'
+import { Container } from './styles'
+import type { GameContentProps } from './types'
 
-const Game: React.FC = () => {
-  const { isGreenLight, handleStepClicked, currentGameScore } =
-    useTrafficLight()
-
-  return (
-    <CenteredLayout>
+const GameContent: React.FC<GameContentProps> = ({
+  currentGameScore,
+  isGreenLight,
+  handleStepClicked,
+}) => (
+  <CenteredLayout>
+    <Container>
       <Scoreboard currentGameScore={currentGameScore} />
       <TrafficLight isGreenLight={isGreenLight} />
       <ButtonGroup fullWidth variant="contained">
@@ -25,8 +27,8 @@ const Game: React.FC = () => {
           onClick={() => handleStepClicked({ step: STEP.right })}
         />
       </ButtonGroup>
-    </CenteredLayout>
-  )
-}
+    </Container>
+  </CenteredLayout>
+)
 
-export default Game
+export default GameContent

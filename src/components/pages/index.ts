@@ -1,5 +1,5 @@
-import Game from './game'
+import GamePage from './game-page'
 import Home from './home'
 import Rankings from './rankings'
 
-export { Game, Home, Rankings }
+export { GamePage, Home, Rankings }
