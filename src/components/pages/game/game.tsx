@@ -1,6 +1,7 @@
 import type React from 'react'
-import { ButtonGroup, Card, Typography } from '@mui/material'
+import { ButtonGroup } from '@mui/material'
 import { StepButton } from '@/components/atoms/buttons'
+import Scoreboard from '@/components/molecules/scoreboard/scoreboard'
 import TrafficLight from '@/components/molecules/traffic-light'
 import CenteredLayout from '@/components/templates/centered-layout'
 import { STEP } from './constants'
@@ -12,28 +13,7 @@ const Game: React.FC = () => {
 
   return (
     <CenteredLayout>
-      <Card
-        sx={{
-          display: 'flex',
-          alignItems: 'center',
-          gap: 2,
-          mb: 3,
-          p: 2,
-          borderRadius: 2,
-          boxShadow: 3,
-        }}
-      >
-        <Typography
-          variant="h4"
-          component="div"
-          sx={{
-            fontWeight: 'bold',
-            letterSpacing: '0.1em',
-          }}
-        >
-          Score: {currentGameScore}
-        </Typography>
-      </Card>
+      <Scoreboard currentGameScore={currentGameScore} />
       <TrafficLight isGreenLight={isGreenLight} />
       <ButtonGroup fullWidth variant="contained">
         <StepButton
