@@ -26,6 +26,7 @@ export const useTrafficLight = () => {
     }
 
     if (lastStepClicked && lastStepClicked === step) {
+      window.navigator.vibrate([200])
       updateGameScore(Math.max(currentGameScore - 1, 0))
 
       return
