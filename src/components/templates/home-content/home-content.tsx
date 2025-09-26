@@ -8,6 +8,7 @@ import {
   TrafficImage,
 } from './styles'
 import type { HomeContentProps } from './types'
+import trafficLightImage from '/traffic-light.png'
 
 const HomeContent: React.FC<HomeContentProps> = ({
   titleLabel,
@@ -22,7 +23,7 @@ const HomeContent: React.FC<HomeContentProps> = ({
     <Card>
       <CardContainer>
         <ImageContainer>
-          <TrafficImage src="/traffic-light.png" alt="Traffic Light" />
+          <TrafficImage src={trafficLightImage} alt="Traffic Light" />
         </ImageContainer>
         <Typography variant="h5">{titleLabel}</Typography>
         <Subtitle variant="h6">{subtitleLabel}</Subtitle>
