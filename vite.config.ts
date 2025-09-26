@@ -2,12 +2,12 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   plugins: [react()],
-  base: '/red-light-green-light',
+  base: mode === 'production' ? '/red-light-green-light' : '/',
   resolve: {
     alias: {
       '@': '/src',
     },
   },
-})
+}))
