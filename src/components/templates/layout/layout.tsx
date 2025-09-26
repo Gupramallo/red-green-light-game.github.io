@@ -1,47 +1,37 @@
-import type { PropsWithChildren } from 'react'
+import { type PropsWithChildren, useMemo } from 'react'
 import type React from 'react'
-import { Home, Leaderboard, Logout } from '@mui/icons-material'
-import { AppBar, Box, IconButton, Toolbar } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
-import Profile from '@/components/organisms/profile'
+import Header from '@/components/organisms/header'
+import type { HeaderIcons } from '@/components/organisms/header/types'
 import { useGameDataStore } from '@/shared/game-data-provider/store'
-import { ROUTES } from '@/shared/routes'
+import { HEADER_ICONS } from './constants'
 import { Container } from './styles'
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate()
   const { currentUser, clearCurrentUser } = useGameDataStore()
+  const headerIcons: HeaderIcons[] = useMemo(
+    () =>
+      HEADER_ICONS.map(({ title, id, route, icon }) => ({
+        title,
+        id,
+        icon,
+        onClick: () => {
+          if (id === 'logout') {
+            clearCurrentUser()
+          }
 
-  const handleLogout = () => {
-    clearCurrentUser()
-    navigate(ROUTES.home)
-  }
-  const handleRankings = () => navigate(ROUTES.rankings)
-  const handleHome = () => navigate(currentUser ? ROUTES.game : ROUTES.home)
+          navigate(route)
+        },
+      })),
+    [clearCurrentUser, navigate]
+  )
 
   return (
     <Container>
-      <AppBar color="inherit" position="sticky">
-        <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Profile
-            currentUser={currentUser}
-            profileSrc="https://cataas.com/cat"
-          />
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <IconButton onClick={handleHome} title="Rankings">
-              <Home />
-            </IconButton>
-            <IconButton onClick={handleRankings} title="Rankings">
-              <Leaderboard />
-            </IconButton>
-            {currentUser && (
-              <IconButton onClick={handleLogout} title="Logout">
-                <Logout />
-              </IconButton>
-            )}
-          </Box>
-        </Toolbar>
-      </AppBar>
+      {currentUser && (
+        <Header headerIcons={headerIcons} currentUser={currentUser} />
+      )}
 
       {children}
     </Container>

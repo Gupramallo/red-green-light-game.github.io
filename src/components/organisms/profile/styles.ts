@@ -22,6 +22,7 @@ export const Avatar = styled(MuiAvatar)`
 
 export const NameLabel = styled(Typography)`
   font-weight: medium;
+  color: ${({ theme }) => theme.palette.text.primary};
 `
 
 export const HighScoreLabel = styled(Typography)`

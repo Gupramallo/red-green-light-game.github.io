@@ -17,8 +17,8 @@ function App() {
         </Route>
         <Route element={<AuthGuard />}>
           <Route path={ROUTES.game} element={<GamePage />} />
+          <Route path={ROUTES.rankings} element={<RankingsPage />} />
         </Route>
-        <Route path={ROUTES.rankings} element={<RankingsPage />} />
       </Routes>
     </Layout>
   )

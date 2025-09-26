@@ -35,9 +35,7 @@ const RankingsContent: React.FC<RankingsContentProps> = ({
             }
           />
           <ScoreContainer>
-            <PositionLabel variant="h5" color="text.secondary">
-              {`#${index + 1}`}
-            </PositionLabel>
+            <PositionLabel variant="h5">{`#${index + 1}`}</PositionLabel>
           </ScoreContainer>
         </RankingsList>
         {index < users.length - 1 && <Divider />}

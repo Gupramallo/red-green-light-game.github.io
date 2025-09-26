@@ -7,6 +7,7 @@ export const Container = styled(Box)`
   align-items: center;
   height: 100%;
   padding: ${({ theme }) => theme.spacing(2.5)};
+  margin-top: ${({ theme }) => theme.spacing(5)};
 `
 
 export const CardContainer = styled(CardContent)`
