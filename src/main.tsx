@@ -10,7 +10,7 @@ import theme from './styles/theme.ts'
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <GameDataProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/red-light-green-light">
         <ThemeProvider theme={theme}>
           <App />
         </ThemeProvider>
