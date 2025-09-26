@@ -6,6 +6,18 @@
     <link rel="icon" type="image/svg+xml" href="/traffic-light.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>red-light-green-light-game</title>
+
+    <script>
+      const params = new URLSearchParams(location.search)
+      const route = params.get('')
+      if (route) {
+        history.replaceState(
+          null,
+          '',
+          location.pathname + route + location.hash
+        )
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

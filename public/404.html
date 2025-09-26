@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Redirecting...</title>
+    <script>
+      const { protocol, hostname, port, pathname, search, hash } = location
+      const base = `${protocol}//${hostname}${port ? `:${port}` : ''}`
+      const redirect = pathname.split('/').slice(0, 2).join('/')
+      const route = pathname.slice(redirect.length)
+
+      location.replace(`${base}${redirect}/?${route}${search}${hash}`)
+    </script>
+  </head>
+  <body></body>
+</html>
