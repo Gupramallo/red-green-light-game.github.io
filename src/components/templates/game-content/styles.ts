@@ -1,4 +1,4 @@
-import { styled } from '@mui/material'
+import { Box, styled } from '@mui/material'
 
 export const Container = styled('div')`
   width: 100%;
@@ -6,4 +6,9 @@ export const Container = styled('div')`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing(3)};
   align-items: center;
+`
+
+export const ButtonsContainer = styled(Box)`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing(2)};
 `
