@@ -16,6 +16,7 @@ export const Avatar = styled(MuiAvatar)`
   ${({ theme }) => css`
     width: ${theme.spacing(4)};
     height: ${theme.spacing(4)};
+    border: ${theme.spacing(0.125)} solid;
   `}
 `
 

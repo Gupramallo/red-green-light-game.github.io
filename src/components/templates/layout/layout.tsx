@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react'
 import type React from 'react'
-import { DarkMode, Home, Leaderboard, Logout } from '@mui/icons-material'
+import { Home, Leaderboard, Logout } from '@mui/icons-material'
 import { AppBar, Box, IconButton, Toolbar } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import Profile from '@/components/organisms/profile'
@@ -18,24 +18,21 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   }
   const handleRankings = () => navigate(ROUTES.rankings)
   const handleHome = () => navigate(currentUser ? ROUTES.game : ROUTES.home)
-  const handleThemeToggle = () => {
-    // TODO: Implement theme toggle
-  }
 
   return (
     <Container>
-      <AppBar color="transparent" position="static">
+      <AppBar color="inherit" position="sticky">
         <Toolbar sx={{ justifyContent: 'space-between' }}>
-          <Profile currentUser={currentUser} />
+          <Profile
+            currentUser={currentUser}
+            profileSrc="https://cataas.com/cat"
+          />
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <IconButton onClick={handleHome} title="Rankings">
               <Home />
             </IconButton>
             <IconButton onClick={handleRankings} title="Rankings">
               <Leaderboard />
-            </IconButton>
-            <IconButton onClick={handleThemeToggle} title="Toggle theme">
-              <DarkMode />
             </IconButton>
             {currentUser && (
               <IconButton onClick={handleLogout} title="Logout">
