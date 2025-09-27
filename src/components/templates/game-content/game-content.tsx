@@ -1,20 +1,33 @@
 import type React from 'react'
 import { StepButton } from '@/components/atoms/buttons'
+import AudioButton from '@/components/atoms/buttons/audio-button'
 import Scoreboard from '@/components/molecules/scoreboard'
 import TrafficLight from '@/components/molecules/traffic-light'
 import { STEP } from '@/components/pages/game-page/constants'
 import CenteredLayout from '../centered-layout'
-import { ButtonsContainer, Container } from './styles'
+import { ButtonsContainer, Container, ScoreAndAudioContainer } from './styles'
 import type { GameContentProps } from './types'
 
 const GameContent: React.FC<GameContentProps> = ({
   currentGameScore,
   isGreenLight,
   handleStepClicked,
+  isPlayingAllowed,
+  audioRef,
+  audioSrc,
+  toggleAudio,
 }) => (
   <CenteredLayout>
     <Container>
-      <Scoreboard currentGameScore={currentGameScore} />
+      <ScoreAndAudioContainer>
+        <Scoreboard currentGameScore={currentGameScore} />
+        <AudioButton
+          isPlayingAllowed={isPlayingAllowed}
+          audioRef={audioRef}
+          audioSrc={audioSrc}
+          toggleAudio={toggleAudio}
+        />
+      </ScoreAndAudioContainer>
       <TrafficLight isGreenLight={isGreenLight} />
       <ButtonsContainer>
         <StepButton

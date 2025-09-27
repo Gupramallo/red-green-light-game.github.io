@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from 'react'
 import { useGameDataContext } from '@/shared/game-data-provider/context'
 import type { StepT } from '@/shared/game-data-provider/types'
+import useAudio from '@/shared/hooks/use-audio'
 import {
   INITIAL_STATE,
   RED_LIGHT_DURATION,
@@ -17,6 +18,13 @@ export const useTrafficLight = () => {
   const isGreenLight = trafficColor === TRAFFIC_COLORS.green
   const currentGameScore = currentUser?.score ?? 0
   const highScore = currentUser?.highScore ?? 0
+  const {
+    isPlayingAllowed,
+    audioRef,
+    setIsPlayingAllowed,
+    calculateAudioPlaybackRate,
+    toggleAudio,
+  } = useAudio()
   const handleStepClicked = ({ step }: { step: StepT }) => {
     if (!isGreenLight) {
       finalizeGame()
@@ -26,7 +34,8 @@ export const useTrafficLight = () => {
     }
 
     if (lastStepClicked && lastStepClicked === step) {
-      window.navigator.vibrate([200])
+      // TODO: extract into a function
+      window?.navigator?.vibrate([200])
       updateGameScore(Math.max(currentGameScore - 1, 0))
 
       return
@@ -40,6 +49,23 @@ export const useTrafficLight = () => {
     const duration = isGreenLight
       ? calculateGreenLightDuration(currentUser?.score)
       : RED_LIGHT_DURATION
+
+    // TODO: Improve readability
+    if (isPlayingAllowed) {
+      if (isGreenLight) {
+        if (audioRef?.current) {
+          audioRef.current.playbackRate = calculateAudioPlaybackRate({
+            targetDuration: duration,
+          })
+        }
+        audioRef?.current?.play()
+      } else {
+        if (audioRef?.current) {
+          audioRef?.current?.pause()
+          audioRef.current.currentTime = 0
+        }
+      }
+    }
 
     const nextActionType = isGreenLight
       ? TRAFFIC_COLOR_ACTIONS.switchToRed
@@ -61,5 +87,9 @@ export const useTrafficLight = () => {
     highScore,
     isGreenLight,
     handleStepClicked,
+    audioRef,
+    setIsPlayingAllowed,
+    isPlayingAllowed,
+    toggleAudio,
   }
 }

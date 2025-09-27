@@ -12,3 +12,9 @@ export const ButtonsContainer = styled(Box)`
   display: flex;
   gap: ${({ theme }) => theme.spacing(2)};
 `
+
+export const ScoreAndAudioContainer = styled(Box)`
+  display: flex;
+  gap: ${({ theme }) => theme.spacing(2)};
+  align-items: center;
+`
