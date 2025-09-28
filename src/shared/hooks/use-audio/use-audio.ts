@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { DEFAULT_PLAYBACK_RATE } from '@/components/pages/game-page/constants'
+import { DEFAULT_PLAYBACK_RATE } from './constants'
 import type { ToggleAudio } from './types'
 import { unlockAudio } from './utils'
 

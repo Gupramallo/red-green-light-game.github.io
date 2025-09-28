@@ -1,4 +1,4 @@
-import type { StepT } from '@/shared/game-data-provider/types'
+import type { StepT } from '@/shared/types'
 
 export type StepButtonProps = {
   label: string

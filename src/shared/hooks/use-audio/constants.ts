@@ -1,1 +1,5 @@
-export const DEFAULT_AUDIO_DURATION = 11500 // 11.5 seconds in milliseconds
+export const DEFAULT_AUDIO_DURATION = 11500
+
+export const DEFAULT_PLAYBACK_RATE = 1
+
+export const MAXIMUM_PLAYBACK_RATE = 4

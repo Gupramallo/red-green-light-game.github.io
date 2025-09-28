@@ -1,5 +1,3 @@
-import type { STEP } from '@/components/pages/game-page/constants'
-
 export type User = {
   name: string
   score: number
@@ -15,5 +13,3 @@ export type GameDataStore = {
   finalizeGame: () => void
   resetGameScore: () => void
 }
-
-export type StepT = keyof typeof STEP

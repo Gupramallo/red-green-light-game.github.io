@@ -9,10 +9,3 @@ export const SCORE_TIME_DECREASE_MULTIPLIER = 100
 export const RANDOM_VARIATION_RANGE = 3000
 
 export const RANDOM_VARIATION_OFFSET = 0.5
-
-export const DEFAULT_PLAYBACK_RATE = 1
-
-export const STEP = {
-  left: 'left',
-  right: 'right',
-} as const

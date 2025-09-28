@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useGameDataContext } from '@/shared/game-data-provider/context'
-import type { StepT } from '@/shared/game-data-provider/types'
 import useAudio from '@/shared/hooks/use-audio'
 import { calculateAudioPlaybackRate } from '@/shared/hooks/use-audio/utils'
+import type { StepT } from '@/shared/types'
 import { RED_LIGHT_DURATION } from './constants'
 import { calculateGreenLightDuration, handleAudioPlaying } from './utils'
 

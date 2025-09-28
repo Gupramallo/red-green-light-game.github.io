@@ -1,6 +1,6 @@
 import type React from 'react'
 import { DirectionsWalk } from '@mui/icons-material'
-import { STEP } from '@/components/pages/game-page/constants'
+import { STEP } from '@/shared/constants'
 import { Button } from './styles'
 import type { StepButtonProps } from './types'
 

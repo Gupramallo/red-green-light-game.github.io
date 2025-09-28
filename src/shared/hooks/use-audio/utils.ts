@@ -1,5 +1,8 @@
-import { DEFAULT_PLAYBACK_RATE } from '@/components/pages/game-page/constants'
-import { DEFAULT_AUDIO_DURATION } from './constants'
+import {
+  DEFAULT_AUDIO_DURATION,
+  DEFAULT_PLAYBACK_RATE,
+  MAXIMUM_PLAYBACK_RATE,
+} from './constants'
 import type { CalculateAudioPlaybackRate } from './types'
 
 export const calculateAudioPlaybackRate = ({
@@ -8,7 +11,10 @@ export const calculateAudioPlaybackRate = ({
 }: CalculateAudioPlaybackRate): number => {
   const idealRate = audioDuration / targetDuration
 
-  return Math.min(4.0, Math.max(DEFAULT_PLAYBACK_RATE, idealRate))
+  return Math.min(
+    MAXIMUM_PLAYBACK_RATE,
+    Math.max(DEFAULT_PLAYBACK_RATE, idealRate)
+  )
 }
 
 export const unlockAudio = (audioRef: HTMLAudioElement) => {
