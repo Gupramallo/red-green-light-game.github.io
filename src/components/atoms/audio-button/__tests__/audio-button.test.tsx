@@ -30,7 +30,7 @@ describe('AudioButton', () => {
   })
 
   it('should render audio element without src when audioSrc is undefined', () => {
-    render(<AudioButton {...defaultProps} audioSrc="" />)
+    render(<AudioButton {...defaultProps} audioSrc={undefined} />)
 
     const audioElement = screen.getByTestId('audio-test-id')
     expect(audioElement).toBeInTheDocument()

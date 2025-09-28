@@ -5,8 +5,16 @@ import type { TrafficLightsProps } from './types'
 
 const TrafficLight: React.FC<TrafficLightsProps> = ({ isGreenLight }) => (
   <Container>
-    <Light isTrafficLightOn={!isGreenLight} color={TRAFFIC_COLORS.red} />
-    <Light isTrafficLightOn={isGreenLight} color={TRAFFIC_COLORS.green} />
+    <Light
+      data-testid="traffic-red-light"
+      isTrafficLightOn={!isGreenLight}
+      color={TRAFFIC_COLORS.red}
+    />
+    <Light
+      data-testid="traffic-green-light"
+      isTrafficLightOn={isGreenLight}
+      color={TRAFFIC_COLORS.green}
+    />
   </Container>
 )
 
