@@ -23,7 +23,6 @@ export default defineConfig([
       semi: ['error', 'never'],
       'no-console': 'warn',
       'object-curly-spacing': ['error', 'always'],
-      'space-before-function-paren': ['error', 'never'],
       'max-lines': [2, 250],
       'padding-line-between-statements': [
         'error',
