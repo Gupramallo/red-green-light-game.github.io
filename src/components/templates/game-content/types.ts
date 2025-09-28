@@ -1,4 +1,4 @@
-import type { AudioButtonProps } from '@/components/atoms/buttons/audio-button/types'
+import type { AudioButtonProps } from '@/components/atoms/audio-button/types'
 import type { StepT } from '@/shared/game-data-provider/types'
 
 export type GameContentProps = AudioButtonProps & {
