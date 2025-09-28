@@ -17,7 +17,13 @@ export default defineConfig(({ mode }) => ({
     css: true,
     coverage: {
       include: ['src/**/*.ts', 'src/**/*.tsx'],
-      exclude: ['**/index.ts', '**/types.ts', '**/*.d.ts', 'src/test/**'],
+      exclude: [
+        '**/index.ts',
+        '**/types.ts',
+        '**/constants.ts',
+        '**/*.d.ts',
+        'src/test/**',
+      ],
     },
   },
 }))
