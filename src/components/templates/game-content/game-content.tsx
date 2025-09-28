@@ -1,6 +1,6 @@
 import type React from 'react'
-import { StepButton } from '@/components/atoms'
 import AudioButton from '@/components/atoms/audio-button'
+import StepButton from '@/components/atoms/step-button'
 import Scoreboard from '@/components/molecules/scoreboard'
 import TrafficLight from '@/components/molecules/traffic-light'
 import { STEP } from '@/components/pages/game-page/constants'
