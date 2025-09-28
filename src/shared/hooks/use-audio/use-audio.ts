@@ -1,16 +1,27 @@
 import { useRef, useState } from 'react'
-import { DEFAULT_AUDIO_DURATION } from './constants'
-import type { CalculateAudioPlaybackRate } from './types'
+import { DEFAULT_PLAYBACK_RATE } from '@/components/pages/game-page/constants'
+import type { ToggleAudio } from './types'
+import { unlockAudio } from './utils'
 
 export const useAudio = () => {
   const audioRef = useRef<HTMLAudioElement | null>(null)
   const [isPlayingAllowed, setIsPlayingAllowed] = useState(false)
-  const [hasPlayedOnce, setHasPlayedOnce] = useState(false)
+  const [isAudioUnlocked, setIsAudioUnlocked] = useState(false)
 
-  const toggleAudio = () => {
-    if (!hasPlayedOnce && audioRef.current) {
+  const toggleAudio = ({
+    audioPlaybackRate = DEFAULT_PLAYBACK_RATE,
+    autoPlay,
+  }: ToggleAudio = {}) => {
+    if (!audioRef.current) return
+
+    if (!isAudioUnlocked) {
+      unlockAudio(audioRef.current)
+      audioRef.current.playbackRate = audioPlaybackRate
+      setIsAudioUnlocked(true)
+    }
+
+    if (autoPlay) {
       audioRef.current.play()
-      setHasPlayedOnce(true)
     }
 
     setIsPlayingAllowed((isPlayingPrevValue) => {
@@ -22,17 +33,7 @@ export const useAudio = () => {
     })
   }
 
-  const calculateAudioPlaybackRate = ({
-    targetDuration,
-    audioDuration = DEFAULT_AUDIO_DURATION,
-  }: CalculateAudioPlaybackRate): number => {
-    const idealRate = audioDuration / targetDuration
-
-    return Math.min(4.0, Math.max(1, idealRate))
-  }
-
   return {
-    calculateAudioPlaybackRate,
     setIsPlayingAllowed,
     audioRef,
     toggleAudio,

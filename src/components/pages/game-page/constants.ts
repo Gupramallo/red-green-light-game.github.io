@@ -8,17 +8,9 @@ export const SCORE_TIME_DECREASE_MULTIPLIER = 100
 
 export const RANDOM_VARIATION_RANGE = 3000
 
-export const TRAFFIC_COLOR_ACTIONS = {
-  switchToGreen: 'SWITCH_TO_GREEN',
-  switchToRed: 'SWITCH_TO_RED',
-} as const
+export const RANDOM_VARIATION_OFFSET = 0.5
 
-export const TRAFFIC_COLORS = {
-  green: 'green',
-  red: 'red',
-} as const
-
-export const INITIAL_STATE = TRAFFIC_COLORS.green
+export const DEFAULT_PLAYBACK_RATE = 1
 
 export const STEP = {
   left: 'left',

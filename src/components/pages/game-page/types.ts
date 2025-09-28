@@ -1,7 +1,8 @@
-import type { TRAFFIC_COLOR_ACTIONS, TRAFFIC_COLORS } from './constants'
+import type { RefObject } from 'react'
 
-export type TrafficColor = keyof typeof TRAFFIC_COLORS
-
-export type TrafficAction = {
-  type: (typeof TRAFFIC_COLOR_ACTIONS)[keyof typeof TRAFFIC_COLOR_ACTIONS]
+export type HandleAudioPlaying = {
+  isPlayingAllowed: boolean
+  isGreenLight: boolean
+  audioRef: RefObject<HTMLAudioElement | null>
+  duration: number
 }

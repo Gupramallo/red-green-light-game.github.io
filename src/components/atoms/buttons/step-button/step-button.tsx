@@ -14,9 +14,7 @@ const StepButton: React.FC<StepButtonProps> = ({
     variant="contained"
     color="info"
     onClick={onClick}
-    startIcon={
-      direction === STEP.left && <DirectionsWalk sx={{ fontSize: '6rem' }} />
-    }
+    startIcon={direction === STEP.left && <DirectionsWalk />}
     endIcon={direction === STEP.right && <DirectionsWalk />}
   >
     {label}
