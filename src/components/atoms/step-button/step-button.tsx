@@ -8,17 +8,21 @@ const StepButton: React.FC<StepButtonProps> = ({
   label,
   onClick,
   direction,
-}) => (
-  <Button
-    size="large"
-    variant="contained"
-    color="info"
-    onClick={onClick}
-    startIcon={direction === STEP.left && <DirectionsWalk />}
-    endIcon={direction === STEP.right && <DirectionsWalk />}
-  >
-    {label}
-  </Button>
-)
+}) => {
+  const StepIcon = <DirectionsWalk data-testid={`step-icon-${direction}`} />
+
+  return (
+    <Button
+      size="large"
+      variant="contained"
+      color="info"
+      onClick={onClick}
+      startIcon={direction === STEP.left && StepIcon}
+      endIcon={direction === STEP.right && StepIcon}
+    >
+      {label}
+    </Button>
+  )
+}
 
 export default StepButton

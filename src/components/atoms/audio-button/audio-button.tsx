@@ -10,7 +10,7 @@ const AudioButton: React.FC<AudioButtonProps> = ({
   isPlayingAllowed,
 }) => (
   <Box>
-    <audio ref={audioRef} src={audioSrc}></audio>
+    <audio data-testid="audio-test-id" ref={audioRef} src={audioSrc}></audio>
     <IconButton onClick={toggleAudio}>
       {isPlayingAllowed ? <VolumeUp /> : <VolumeOff />}
     </IconButton>
