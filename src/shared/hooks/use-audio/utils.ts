@@ -17,7 +17,7 @@ export const calculateAudioPlaybackRate = ({
   )
 }
 
-export const unlockAudio = (audioRef: HTMLAudioElement) => {
+export const unlockAudio = (audioRef: HTMLAudioElement | null) => {
   if (!audioRef) return
 
   audioRef.muted = true
