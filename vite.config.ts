@@ -23,6 +23,8 @@ export default defineConfig(({ mode }) => ({
         '**/constants.ts',
         '**/*.d.ts',
         'src/test/**',
+        'src/App.tsx',
+        'src/main.tsx',
       ],
     },
   },
