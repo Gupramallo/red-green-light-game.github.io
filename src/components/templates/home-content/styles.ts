@@ -1,4 +1,4 @@
-import { Box, CardContent, Typography, styled } from '@mui/material'
+import { Box, CardContent, Typography, css, styled } from '@mui/material'
 
 export const Container = styled(Box)`
   display: flex;
@@ -8,6 +8,7 @@ export const Container = styled(Box)`
   height: 100%;
   padding: ${({ theme }) => theme.spacing(2.5)};
   margin-top: ${({ theme }) => theme.spacing(5)};
+  text-align: center;
 `
 
 export const CardContainer = styled(CardContent)`
@@ -15,7 +16,16 @@ export const CardContainer = styled(CardContent)`
   flex-direction: column;
   align-items: center;
   gap: ${({ theme }) => theme.spacing(2)};
-  width: ${({ theme }) => theme.spacing(50)};
+
+  ${({ theme }) => css`
+    ${theme.breakpoints.up('sm')} {
+      width: ${theme.spacing(50)};
+    }
+
+    ${theme.breakpoints.down('sm')} {
+      max-width: ${theme.spacing(45)};
+    }
+  `}
 `
 
 export const ImageContainer = styled(Box)`
