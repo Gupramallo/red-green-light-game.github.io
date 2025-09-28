@@ -15,6 +15,7 @@ describe('calculateAudioPlaybackRate', () => {
       targetDuration: DEFAULT_AUDIO_DURATION,
       audioDuration: DEFAULT_AUDIO_DURATION,
     })
+
     expect(result).toBe(1.0)
   })
 
@@ -32,6 +33,7 @@ describe('calculateAudioPlaybackRate', () => {
       targetDuration: 500,
       audioDuration: DEFAULT_AUDIO_DURATION,
     })
+
     expect(result).toBe(MAXIMUM_PLAYBACK_RATE)
   })
 
@@ -40,6 +42,7 @@ describe('calculateAudioPlaybackRate', () => {
       targetDuration: 50000,
       audioDuration: DEFAULT_AUDIO_DURATION,
     })
+
     expect(result).toBe(DEFAULT_PLAYBACK_RATE)
   })
 })
