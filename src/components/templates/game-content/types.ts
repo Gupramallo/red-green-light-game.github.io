@@ -1,5 +1,5 @@
 import type { AudioButtonProps } from '@/components/atoms/audio-button/types'
-import type { StepT } from '@/shared/game-data-provider/types'
+import type { StepT } from '@/shared/types'
 
 export type GameContentProps = AudioButtonProps & {
   currentGameScore: number

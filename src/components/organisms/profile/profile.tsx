@@ -7,7 +7,7 @@ const Profile: React.FC<ProfileProps> = ({ currentUser, profileSrc }) => {
   const name = currentUser?.name
 
   return (
-    <Container>
+    <Container data-testid="profile-container">
       {currentUser && (
         <>
           <Avatar src={profileSrc} alt={name}>
