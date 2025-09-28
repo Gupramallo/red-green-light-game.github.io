@@ -3,6 +3,7 @@ import { useGameDataContext } from '@/shared/game-data-provider/context'
 import useAudio from '@/shared/hooks/use-audio'
 import { calculateAudioPlaybackRate } from '@/shared/hooks/use-audio/utils'
 import type { StepT } from '@/shared/types'
+import { vibrateMobileDevice } from '@/shared/utils'
 import { RED_LIGHT_DURATION } from './constants'
 import { calculateGreenLightDuration, handleAudioPlaying } from './utils'
 
@@ -23,8 +24,7 @@ export const useTrafficLight = () => {
     }
 
     if (lastStepClicked && lastStepClicked === step) {
-      // TODO: extract into a function
-      window?.navigator?.vibrate([200])
+      vibrateMobileDevice()
       updateGameScore(Math.max(currentGameScore - 1, 0))
 
       return
