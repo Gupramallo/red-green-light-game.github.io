@@ -38,5 +38,6 @@ export const useAudio = () => {
     audioRef,
     toggleAudio,
     isPlayingAllowed,
+    isAudioUnlocked,
   }
 }
