@@ -22,6 +22,7 @@ vi.mock('react-router-dom', async () => {
 })
 
 const mockClearCurrentUser = vi.fn()
+const mockupdateUserHighScore = vi.fn()
 
 describe('Layout', () => {
   beforeEach(() => vi.clearAllMocks())
@@ -30,6 +31,7 @@ describe('Layout', () => {
     mockUseGameDataStore.mockReturnValue({
       currentUser: mockUser,
       clearCurrentUser: mockClearCurrentUser,
+      updateUserHighScore: mockupdateUserHighScore,
     })
 
     renderWithTheme(
@@ -54,6 +56,7 @@ describe('Layout', () => {
 
       fireEvent.click(button)
 
+      expect(mockupdateUserHighScore).toHaveBeenCalled()
       expect(mockNavigate).toHaveBeenCalledWith(icon.route)
       if (icon.id === 'logout') {
         expect(mockClearCurrentUser).toHaveBeenCalled()

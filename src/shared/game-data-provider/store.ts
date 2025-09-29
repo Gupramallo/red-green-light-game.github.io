@@ -81,6 +81,16 @@ export const useGameDataStore = create<GameDataStore>()(
           usersScores: updatedUsersScores,
         })
       },
+      updateUserHighScore: () => {
+        const { currentUser, usersScores } = get()
+        const updatedUsersScores = usersScores.map((user) =>
+          user.name === currentUser?.name ? currentUser : user
+        )
+
+        set({
+          usersScores: updatedUsersScores,
+        })
+      },
     }),
     {
       name: 'game-data-storage',

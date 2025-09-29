@@ -13,6 +13,7 @@ const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
     updateGameScore,
     finalizeGame,
     resetGameScore,
+    updateUserHighScore,
   } = useGameDataStore()
 
   const value: GameDataStore = useMemo(
@@ -24,6 +25,7 @@ const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
       clearCurrentUser,
       updateGameScore,
       resetGameScore,
+      updateUserHighScore,
     }),
     [
       currentUser,
@@ -33,6 +35,7 @@ const GameDataProvider: React.FC<PropsWithChildren> = ({ children }) => {
       clearCurrentUser,
       updateGameScore,
       resetGameScore,
+      updateUserHighScore,
     ]
   )
 

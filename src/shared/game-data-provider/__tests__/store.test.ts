@@ -195,4 +195,44 @@ describe('useGameDataStore', () => {
       expect(state.usersScores).toEqual([secondUser])
     })
   })
+
+  describe('updateUserHighScore', () => {
+    it('should update user high score', () => {
+      const currentUser: User = {
+        name: mockUser.name,
+        score: 200,
+        highScore: 250,
+      }
+
+      useGameDataStore.setState({
+        currentUser,
+        usersScores: [
+          secondUser,
+          { name: mockUser.name, score: 150, highScore: 200 },
+        ],
+      })
+
+      const { updateUserHighScore } = useGameDataStore.getState()
+
+      updateUserHighScore()
+
+      const state = useGameDataStore.getState()
+
+      expect(state.currentUser?.score).toBe(200)
+      expect(state.currentUser?.highScore).toBe(250)
+
+      const updatedUser = state.usersScores.find(
+        (user) => user.name === mockUser.name
+      )
+
+      expect(updatedUser?.score).toBe(200)
+      expect(updatedUser?.highScore).toBe(250)
+
+      const otherUserInArray = state.usersScores.find(
+        (user) => user.name === secondUser.name
+      )
+
+      expect(otherUserInArray).toEqual(secondUser)
+    })
+  })
 })

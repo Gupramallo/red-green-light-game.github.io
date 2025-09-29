@@ -41,6 +41,7 @@ const mockGameDataContext = {
   setCurrentUser: vi.fn(),
   clearCurrentUser: vi.fn(),
   resetGameScore: vi.fn(),
+  updateUserHighScore: vi.fn(),
 }
 
 const mockAudioContext = {

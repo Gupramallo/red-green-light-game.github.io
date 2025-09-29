@@ -10,6 +10,7 @@ export type GameDataStore = {
   setCurrentUser: (user: string) => void
   clearCurrentUser: () => void
   updateGameScore: (score: number) => void
+  updateUserHighScore: () => void
   finalizeGame: () => void
   resetGameScore: () => void
 }

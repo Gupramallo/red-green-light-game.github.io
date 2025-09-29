@@ -9,7 +9,8 @@ import { Container } from './styles'
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate()
-  const { currentUser, clearCurrentUser } = useGameDataStore()
+  const { currentUser, clearCurrentUser, updateUserHighScore } =
+    useGameDataStore()
   const headerIcons: HeaderIcons[] = useMemo(
     () =>
       HEADER_ICONS.map(({ title, id, route, icon }) => ({
@@ -21,10 +22,11 @@ const Layout: React.FC<PropsWithChildren> = ({ children }) => {
             clearCurrentUser()
           }
 
+          updateUserHighScore()
           navigate(route)
         },
       })),
-    [clearCurrentUser, navigate]
+    [clearCurrentUser, navigate, updateUserHighScore]
   )
 
   return (
