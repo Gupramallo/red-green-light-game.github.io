@@ -1,1 +1,1 @@
-export const vibrateMobileDevice = () => window?.navigator?.vibrate([200])
+export const vibrateMobileDevice = () => window?.navigator?.vibrate?.([200])
