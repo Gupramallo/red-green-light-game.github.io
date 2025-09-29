@@ -8,4 +8,5 @@ export const GAME_DATA_CONTEXT_DEFAULT_VALUES: GameDataStore = {
   updateGameScore: () => {},
   finalizeGame: () => {},
   resetGameScore: () => {},
+  updateUserHighScore: () => {},
 }
