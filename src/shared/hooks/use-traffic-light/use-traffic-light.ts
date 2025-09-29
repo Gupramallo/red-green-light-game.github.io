@@ -73,7 +73,6 @@ export const useTrafficLight = () => {
     audioRef,
     setIsPlayingAllowed,
     isPlayingAllowed,
-    toggleAudio,
     handleToggleAudio,
   }
 }

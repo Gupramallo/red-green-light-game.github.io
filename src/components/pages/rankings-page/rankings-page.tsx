@@ -2,7 +2,7 @@ import React, { useMemo } from 'react'
 import RankingsContent from '@/components/templates/rankings-content'
 import { useGameDataContext } from '@/shared/game-data-provider/context'
 
-const Rankings: React.FC = () => {
+const RankingsPage: React.FC = () => {
   const { usersScores, currentUser } = useGameDataContext()
 
   const sortedUsers = useMemo(
@@ -13,4 +13,4 @@ const Rankings: React.FC = () => {
   return <RankingsContent users={sortedUsers} currentUser={currentUser} />
 }
 
-export default Rankings
+export default RankingsPage
