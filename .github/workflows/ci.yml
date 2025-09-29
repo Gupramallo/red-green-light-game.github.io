@@ -33,13 +33,5 @@ jobs:
       - name: Run tests with coverage
         run: yarn coverage
 
-      - name: Upload coverage reports
-        uses: codecov/codecov-action@v3
-        with:
-          file: ./coverage/coverage-final.json
-          flags: unittests
-          name: codecov-umbrella
-          fail_ci_if_error: false
-
       - name: Build project
         run: yarn build
