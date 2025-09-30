@@ -73,7 +73,7 @@ Score as many points as possible by taking steps only when the green light is on
 
 4. **Open in browser**
    ```
-   http://localhost:5173/red-light-green-light/
+   http://localhost:3000/red-light-green-light/
    ```
 
 ## 🚀 Available Scripts
