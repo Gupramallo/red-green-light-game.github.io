@@ -96,7 +96,7 @@ Score as many points as possible by taking steps only when the green light is on
 - **Design System**: Atomic Design Pattern (Atoms, Molecules, Organisms, Templates)
 - **Testing**: Comprehensive test suite with Vitest and React Testing Library
 - **Audio Integration**: Sound effects synchronized with game state
-- **Mobile Support**: Responsive design with haptic feedback
+- **Mobile Support**: Responsive design with haptic feedback (not available on Safari)
 - **Persistent Storage**: High scores and user data saved locally
 - **Real-time Scoring**: Live score updates with high score tracking
 - **Type Safety**: Full TypeScript implementation for robust development
