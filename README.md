@@ -55,8 +55,8 @@ Score as many points as possible by taking steps only when the green light is on
 1. **Clone the repository**
 
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/Gupramallo/red-light-green-light.git
+   cd red-light-green-light
    ```
 
 2. **Install dependencies**
