@@ -16,6 +16,7 @@ const GameContent: React.FC<GameContentProps> = ({
   audioRef,
   audioSrc,
   toggleAudio,
+  lastStepClicked,
 }) => (
   <CenteredLayout>
     <Container>
@@ -34,11 +35,13 @@ const GameContent: React.FC<GameContentProps> = ({
           direction={STEP.left}
           label="Left"
           onClick={() => handleStepClicked({ step: STEP.left })}
+          lastStepClicked={lastStepClicked}
         />
         <StepButton
           direction={STEP.right}
           label="Right"
           onClick={() => handleStepClicked({ step: STEP.right })}
+          lastStepClicked={lastStepClicked}
         />
       </ButtonsContainer>
     </Container>

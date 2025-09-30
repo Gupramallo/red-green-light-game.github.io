@@ -22,8 +22,14 @@ describe('GameContent', () => {
     expect(screen.getByTestId('VolumeOffIcon')).toBeInTheDocument()
     expect(screen.getByTestId('step-icon-left')).toBeInTheDocument()
     expect(screen.getByTestId('step-icon-right')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Left' })).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Right' })).toBeInTheDocument()
+
+    const leftButton = screen.getByRole('button', { name: 'Left' })
+    const rightButton = screen.getByRole('button', { name: 'Right' })
+
+    expect(leftButton).toBeInTheDocument()
+    expect(rightButton).toBeInTheDocument()
+    expect(leftButton).toHaveClass('MuiButton-containedInfo')
+    expect(rightButton).toHaveClass('MuiButton-containedInfo')
 
     const redLight = screen.getByTestId('traffic-red-light')
     const greenLight = screen.getByTestId('traffic-green-light')
@@ -79,5 +85,22 @@ describe('GameContent', () => {
     fireEvent.click(audioButton)
 
     expect(mockToggleAudio).toHaveBeenCalledOnce()
+  })
+
+  it('should change step button color when it was the last step clicked', () => {
+    const { rerender } = renderWithTheme(
+      <GameContent {...gameContentProps} lastStepClicked={STEP.left} />
+    )
+
+    const leftButton = screen.getByRole('button', { name: 'Left' })
+    const rightButton = screen.getByRole('button', { name: 'Right' })
+
+    expect(leftButton).toHaveClass('MuiButton-containedError')
+    expect(rightButton).toHaveClass('MuiButton-containedInfo')
+
+    rerender(<GameContent {...gameContentProps} lastStepClicked={STEP.right} />)
+
+    expect(leftButton).toHaveClass('MuiButton-containedError')
+    expect(rightButton).toHaveClass('MuiButton-containedInfo')
   })
 })

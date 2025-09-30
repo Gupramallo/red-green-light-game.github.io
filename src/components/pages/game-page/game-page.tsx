@@ -11,6 +11,7 @@ const GamePage: React.FC = () => {
     audioRef,
     isPlayingAllowed,
     handleToggleAudio,
+    lastStepClicked,
   } = useTrafficLight()
 
   return (
@@ -22,6 +23,7 @@ const GamePage: React.FC = () => {
       audioSrc={gameAudio}
       isPlayingAllowed={isPlayingAllowed}
       toggleAudio={handleToggleAudio}
+      lastStepClicked={lastStepClicked}
     />
   )
 }

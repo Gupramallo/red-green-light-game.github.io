@@ -11,20 +11,19 @@ const defaultProps: StepButtonProps = {
   direction: STEP.left,
 }
 describe('StepButton', () => {
-  describe('rendering', () => {
-    it('should render button with left direction', () => {
-      render(<StepButton {...defaultProps} />)
+  it('should render button with left direction', () => {
+    render(<StepButton {...defaultProps} />)
 
-      const button = screen.getByRole('button', { name: defaultProps.label })
+    const button = screen.getByRole('button', { name: defaultProps.label })
 
-      expect(button).toBeInTheDocument()
-      expect(screen.getByTestId('step-icon-left')).toBeInTheDocument()
-      expect(screen.queryByTestId('step-icon-right')).not.toBeInTheDocument()
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveClass('MuiButton-containedInfo')
+    expect(screen.getByTestId('step-icon-left')).toBeInTheDocument()
+    expect(screen.queryByTestId('step-icon-right')).not.toBeInTheDocument()
 
-      fireEvent.click(button)
+    fireEvent.click(button)
 
-      expect(onClick).toHaveBeenCalled()
-    })
+    expect(onClick).toHaveBeenCalled()
   })
 
   it('should render correctly with right direction', () => {
@@ -35,5 +34,20 @@ describe('StepButton', () => {
     expect(button).toBeInTheDocument()
     expect(screen.getByTestId('step-icon-right')).toBeInTheDocument()
     expect(screen.queryByTestId('step-icon-left')).not.toBeInTheDocument()
+  })
+
+  it('should render with different color if last step clicked is the same as the direction', () => {
+    render(
+      <StepButton
+        {...defaultProps}
+        direction={STEP.right}
+        lastStepClicked={STEP.right}
+      />
+    )
+
+    const button = screen.getByRole('button', { name: defaultProps.label })
+
+    expect(button).toBeInTheDocument()
+    expect(button).toHaveClass('MuiButton-containedError')
   })
 })

@@ -10,4 +10,5 @@ export const gameContentProps: GameContentProps = {
   audioRef: createRef<HTMLAudioElement>(),
   audioSrc: '/test-audio.mp3',
   toggleAudio: vi.fn(),
+  lastStepClicked: undefined,
 }

@@ -8,6 +8,7 @@ const StepButton: React.FC<StepButtonProps> = ({
   label,
   onClick,
   direction,
+  lastStepClicked,
 }) => {
   const StepIcon = <DirectionsWalk data-testid={`step-icon-${direction}`} />
 
@@ -15,7 +16,7 @@ const StepButton: React.FC<StepButtonProps> = ({
     <Button
       size="large"
       variant="contained"
-      color="info"
+      color={lastStepClicked === direction ? 'error' : 'info'}
       onClick={onClick}
       startIcon={direction === STEP.left && StepIcon}
       endIcon={direction === STEP.right && StepIcon}

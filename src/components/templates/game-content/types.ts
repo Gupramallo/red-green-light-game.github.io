@@ -5,4 +5,5 @@ export type GameContentProps = AudioButtonProps & {
   currentGameScore: number
   isGreenLight?: boolean
   handleStepClicked: ({ step }: { step: StepT }) => void
+  lastStepClicked?: StepT
 }
