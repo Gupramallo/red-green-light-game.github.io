@@ -46,7 +46,6 @@ export const useTrafficLight = () => {
       ? calculateGreenLightDuration(currentUser?.score)
       : RED_LIGHT_DURATION
 
-    // TODO: Improve readability
     handleAudioPlaying({
       isGreenLight,
       isPlayingAllowed,
