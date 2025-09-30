@@ -19,13 +19,6 @@ Score as many points as possible by taking steps only when the green light is on
    - **-1 point** for clicking the same step button twice in a row
    - **Game Over** if you click any step button during red light
 
-### ✨ Features
-
-- 🎵 **Audio Cues**: Sound effects sync with light changes
-- 📱 **Mobile Vibration**: Haptic feedback for wrong moves (not available on Safari)
-- 🏆 **Leaderboard**: Track high scores for all players
-- 🎨 **Responsive Design**: Works on desktop and mobile devices
-
 ## 🛠 Tech Stack
 
 ### 📦 Core Dependencies
